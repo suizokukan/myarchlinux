@@ -1,6 +1,6 @@
-echo "============================================"
-echo "=== louisix12261270 / ArchLinux / 1b: v9 ==="
-echo "============================================"
+echo "============================================="
+echo "=== louisix12261270 / ArchLinux / 1b: v10 ==="
+echo "============================================="
 
 echo
 echo "[01] === /etc/localtime ==="
@@ -55,7 +55,7 @@ echo
 pacman -S --noconfirm dhcpcd
 systemctl enable dhcpcd
 
-pacman -S networkmanager
+pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 sleep 2
 
