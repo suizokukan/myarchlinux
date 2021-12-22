@@ -1,0 +1,8 @@
+label: dos
+label-id: 0xfac4ed85
+device: /dev/sda
+unit: sectors
+sector-size: 512
+
+/dev/sda1 : start=        2048, size=     4194304, type=82, bootable
+/dev/sda2 : start=     4196352, size=   620946096, type=83
