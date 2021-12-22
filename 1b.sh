@@ -1,5 +1,5 @@
 echo "============================================"
-echo "=== louisix12261270 / ArchLinux / 1b: v3 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v4 ==="
 echo "============================================"
 
 echo "[01] === /etc/localtime ==="
@@ -26,4 +26,30 @@ sleep 1
 
 echo "[06] === /etc/hostname ==="
 echo "louisix12261270" > /etc/hostname
+sleep 1
+
+echo "[07] === /etc/hosts ==="
+touch /etc/hosts
+echo "127.0.0.1	localhost" >> /etc/hosts
+echo "::1		localhost" >> /etc/hosts
+echo "127.0.1.1	louisix12261270" >> /etc/hosts
+sleep 1
+
+echo "[08] === DHCP ==="
+systemctl enable dhcpcd
+sleep 1
+
+echo "[09] === root password ==="
+echo "root:e" | chpasswd
+sleep 1
+
+echo "[10] === root password ==="
+pacman -S grub os-prober
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+sleep 1
+
+echo "[??] === proguser ==="
+useradd -m proguser
+echo "proguser:e" | chpasswd
 sleep 1
