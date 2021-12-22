@@ -1,5 +1,5 @@
 echo "============================================"
-echo "=== louisix12261270 / ArchLinux / 1b: v4 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v5 ==="
 echo "============================================"
 
 echo "[01] === /etc/localtime ==="
@@ -44,7 +44,7 @@ echo "root:e" | chpasswd
 sleep 1
 
 echo "[10] === root password ==="
-pacman -S grub os-prober
+pacman -S --noconfirm grub os-prober
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 sleep 1
