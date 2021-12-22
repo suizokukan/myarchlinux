@@ -1,5 +1,5 @@
 echo "============================================"
-echo "=== louisix12261270 / ArchLinux / 1a: v5 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v6 ==="
 echo "============================================"
 
 echo
@@ -36,7 +36,13 @@ sleep 2
 echo
 echo "[04] === pacstrap ==="
 echo
+
 pacman -Syy
+
+pacman -S reflector
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
+reflector -c "fr" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+
 pacstrap /mnt base linux linux-firmware nano
 sleep 2
 
