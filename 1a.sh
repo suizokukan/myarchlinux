@@ -1,5 +1,5 @@
 echo "============================================"
-echo "=== louisix12261270 / ArchLinux / 1a: v3 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v4 ==="
 echo "============================================"
 
 echo "[01] === sfdisk /dev/sda < 1.sfdisk ==="
@@ -17,6 +17,7 @@ swapon /dev/sda1
 sleep 1
 
 echo "[04] === pacstrap ==="
+pacman -Syy
 pacstrap /mnt base linux linux-firmware nano
 sleep 1
 
