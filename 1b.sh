@@ -1,5 +1,5 @@
 echo "============================================"
-echo "=== louisix12261270 / ArchLinux / 1b: v8 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v9 ==="
 echo "============================================"
 
 echo
@@ -54,6 +54,9 @@ echo "[08] === DHCP ==="
 echo
 pacman -S --noconfirm dhcpcd
 systemctl enable dhcpcd
+
+pacman -S networkmanager
+systemctl enable NetworkManager
 sleep 2
 
 echo
