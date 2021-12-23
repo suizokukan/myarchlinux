@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v10 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v11 ==="
 echo "============================================="
 
 echo
@@ -71,6 +71,12 @@ echo
 pacman -S --noconfirm grub os-prober
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+sleep 2
+
+echo
+echo "[11] === networkmanager ==="
+echo
+pacman -S --noconfirm networkmanager
 sleep 2
 
 echo
