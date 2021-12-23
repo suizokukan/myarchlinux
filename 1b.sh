@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v13 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v15 ==="
 echo "============================================="
 
 echo
@@ -65,9 +65,9 @@ echo
 echo "[09] === network ==="
 echo
 
-pacman -S --noconfirm networkmanager
-systemctl enable NetworkManager
-sleep 2
+###pacman -S --noconfirm networkmanager
+###systemctl enable NetworkManager
+###sleep 2
 
 echo
 echo "[10] === root password ==="
