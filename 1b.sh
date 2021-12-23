@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v16 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v17 ==="
 echo "============================================="
 
 echo
@@ -98,9 +98,9 @@ pacman -S --noconfirm i3 conky
 sleep 2
 
 echo
-echo "[14] === emacs ==="
+echo "[14] === nano and emacs ==="
 echo
-pacman -S --noconfirm emacs
+pacman -S --noconfirm nano emacs
 sleep 2
 
 echo
