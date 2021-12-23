@@ -1,6 +1,6 @@
-echo "============================================"
-echo "=== louisix12261270 / ArchLinux / 1a: v9 ==="
-echo "============================================"
+echo "============================================="
+echo "=== louisix12261270 / ArchLinux / 1a: v10 ==="
+echo "============================================="
 
 echo
 echo "[01] === sfdisk /dev/sda < 1.sfdisk ==="
@@ -45,13 +45,6 @@ reflector -c "fr" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 
 pacstrap /mnt base linux linux-firmware nano
-
-pacman -Sy --noconfirm archlinux-keyring
-pacman-key --noconfirm --populate archlinux
-pacman-key --noconfirm --refresh-keys
-pacman -Syu --noconfirm 
-pacman -Scc --noconfirm 
-pacman -Syuu --noconfirm 
 
 sleep 2
 
