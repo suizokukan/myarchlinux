@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v17 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v18 ==="
 echo "============================================="
 
 echo
@@ -61,23 +61,14 @@ pacman -Syu --noconfirm
 pacman -Scc --noconfirm 
 pacman -Syuu --noconfirm 
 
-
 echo
-echo "[09] === network ==="
-echo
-
-###pacman -S --noconfirm networkmanager
-###systemctl enable NetworkManager
-###sleep 2
-
-echo
-echo "[10] === root password ==="
+echo "[09] === root password ==="
 echo
 echo "root:e" | chpasswd
 sleep 2
 
 echo
-echo "[11] === GRUB ==="
+echo "[10] === GRUB ==="
 echo
 pacman -S --noconfirm grub os-prober
 grub-install /dev/sda
@@ -85,26 +76,26 @@ grub-mkconfig -o /boot/grub/grub.cfg
 sleep 2
 
 echo
-echo "[12] === networkmanager ==="
+echo "[11] === networkmanager ==="
 echo
-pacman -S --noconfirm networkmanager
-systemctl enable NetworkManager
-sleep 2
+###pacman -S --noconfirm networkmanager
+###systemctl enable NetworkManager
+###sleep 2
 
 echo
-echo "[13] === i3 and conky ==="
+echo "[12] === i3 and conky ==="
 echo
 pacman -S --noconfirm i3 conky
 sleep 2
 
 echo
-echo "[14] === nano and emacs ==="
+echo "[13] === nano and emacs ==="
 echo
 pacman -S --noconfirm nano emacs
 sleep 2
 
 echo
-echo "[15] === proguser ==="
+echo "[14] === proguser ==="
 echo
 useradd -m proguser
 echo "proguser:e" | chpasswd
