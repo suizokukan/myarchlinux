@@ -1,9 +1,9 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v13 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v14 ==="
 echo "============================================="
 
 echo
-echo "[01] === sfdisk /dev/sda < 1.sfdisk ==="
+echo "[A.01] === sfdisk /dev/sda < 1.sfdisk ==="
 echo
 
 touch data.sfdisk
@@ -20,21 +20,21 @@ sfdisk /dev/sda < data.sfdisk
 sleep 2
 
 echo
-echo "[02] === format ==="
+echo "[A.02] === format ==="
 echo
 mkfs.ext4 -F /dev/sda2
 mkswap /dev/sda1
 sleep 2
 
 echo
-echo "[03] === mount and swapon ==="
+echo "[A.03] === mount and swapon ==="
 echo
 mount /dev/sda2 /mnt
 swapon /dev/sda1
 sleep 2
 
 echo
-echo "[04] === pacstrap ==="
+echo "[A.04] === pacstrap ==="
 echo
 
 pacman -Syy
@@ -49,13 +49,13 @@ pacstrap /mnt base linux linux-firmware
 sleep 2
 
 echo
-echo "[05] === /mnt/etc/fstab ==="
+echo "[A.05] === /mnt/etc/fstab ==="
 echo
 genfstab -U /mnt >> /mnt/etc/fstab
 sleep 2
 
 echo
-echo "[06] === arch-chroot /mnt ==="
+echo "[A.06] === arch-chroot /mnt ==="
 echo
 curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1b.sh > 1b.sh
 cp 1b.sh /mnt
