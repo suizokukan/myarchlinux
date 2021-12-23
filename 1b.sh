@@ -77,7 +77,15 @@ echo
 echo "[11] === networkmanager ==="
 echo
 pacman -S --noconfirm networkmanager
+systemctl enable NetworkManager
 sleep 2
+
+echo
+echo "[12] === i3 ==="
+echo
+pacman -S --noconfirm i3
+sleep 2
+
 
 echo
 echo "[??] === proguser ==="
