@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v20 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v21 ==="
 echo "============================================="
 
 echo
@@ -24,8 +24,8 @@ sleep 2
 
 echo
 echo "[04] === /etc/locale.conf ==="
-echo "LANG=en_US.UTF-8”" > /etc/locale.conf
-echo "LC_MESSAGES=en_US.UTF-8”" >> /etc/locale.conf
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "LC_MESSAGES=en_US.UTF-8" >> /etc/locale.conf
 echo
 sleep 2
 
