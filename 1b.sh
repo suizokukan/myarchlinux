@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v11 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v12 ==="
 echo "============================================="
 
 echo
@@ -81,11 +81,16 @@ systemctl enable NetworkManager
 sleep 2
 
 echo
-echo "[12] === i3 ==="
+echo "[12] === i3 and conky ==="
 echo
-pacman -S --noconfirm i3
+pacman -S --noconfirm i3 conky
 sleep 2
 
+echo
+echo "[13] === emacs ==="
+echo
+pacman -S --noconfirm emacs
+sleep 2
 
 echo
 echo "[??] === proguser ==="
