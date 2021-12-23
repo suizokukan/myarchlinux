@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v15 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v16 ==="
 echo "============================================="
 
 echo
@@ -16,6 +16,7 @@ sleep 2
 
 echo
 echo "[03] === /etc/locale.gen and locale-gen ==="
+echo "en_US.UTF-8” UTF-8" > /etc/locale.gen
 echo "fr_FR.UTF-8 UTF-8" > /etc/locale.gen
 echo
 locale-gen
@@ -23,8 +24,8 @@ sleep 2
 
 echo
 echo "[04] === /etc/locale.conf ==="
-echo "LANG=fr_FR.UTF-8" > /etc/locale.conf
-echo "LC_MESSAGES=fr_FR.UTF-8" >> /etc/locale.conf
+echo "LANG=en_US.UTF-8”" > /etc/locale.conf
+echo "LC_MESSAGES=en_US.UTF-8”" >> /etc/locale.conf
 echo
 sleep 2
 
