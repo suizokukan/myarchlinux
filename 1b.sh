@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v23 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v24 ==="
 echo "============================================="
 
 echo
@@ -86,9 +86,9 @@ systemctl enable NetworkManager.service
 sleep 2
 
 echo
-echo "[12] === i3 and conky ==="
+echo "[12] === X, i3 and conky ==="
 echo
-pacman -S --noconfirm i3 conky
+pacman -S --noconfirm xorg-server xorg-apps i3 conky
 sleep 2
 
 echo
