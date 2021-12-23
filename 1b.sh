@@ -1,11 +1,11 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v25 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v26 ==="
 echo "============================================="
 
 echo
 echo "[01] === /etc/localtime ==="
 echo
-ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 sleep 2
 
 echo
