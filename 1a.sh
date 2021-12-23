@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v12 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v13 ==="
 echo "============================================="
 
 echo
@@ -62,5 +62,5 @@ cp 1b.sh /mnt
 
 echo "about to chroot on /mnt ..."
 sleep 5
-arch-chroot /mnt ./1b.sh
+arch-chroot /mnt sh 1b.sh
 
