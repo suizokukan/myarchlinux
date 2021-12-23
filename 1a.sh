@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v11 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v12 ==="
 echo "============================================="
 
 echo
@@ -57,5 +57,10 @@ sleep 2
 echo
 echo "[06] === arch-chroot /mnt ==="
 echo
-arch-chroot /mnt
-sleep 2
+curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1b.sh > 1b.sh
+cp 1b.sh /mnt
+
+echo "about to chroot on /mnt ..."
+sleep 5
+arch-chroot /mnt ./1b.sh
+
