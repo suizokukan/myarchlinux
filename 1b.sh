@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v24 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v25 ==="
 echo "============================================="
 
 echo
@@ -79,8 +79,6 @@ echo
 echo "[11] === networkmanager ==="
 echo
 pacman -S --noconfirm networkmanager wpa_supplicant wireless_tools
-ip link set down eth0
-ip link set down wlan0
 systemctl enable wpa_supplicant.service
 systemctl enable NetworkManager.service
 sleep 2
