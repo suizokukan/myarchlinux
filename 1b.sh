@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v27 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v28 ==="
 echo "============================================="
 
 echo
@@ -86,7 +86,7 @@ sleep 2
 echo
 echo "[B.12] === X, i3 and conky ==="
 echo
-pacman -S --noconfirm xorg-server xorg-apps i3 conky
+pacman -S --noconfirm xorg xorg-xinit xterm i3 conky
 sleep 2
 
 echo
