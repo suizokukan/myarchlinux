@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v21 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v22 ==="
 echo "============================================="
 
 echo
@@ -42,8 +42,8 @@ curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1.mirrorlist 
 cp 1.mirrorlist /etc/pacman.d/mirrorlist
 
 less /etc/pacman.d/mirrorlist
-
-###pacman -Syy
+pacman -Syy
+less /etc/pacman.d/mirrorlist
 
 pacstrap /mnt base linux linux-firmware
 
