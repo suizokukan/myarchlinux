@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v18 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v19 ==="
 echo "============================================="
 
 echo
@@ -41,6 +41,8 @@ echo
 ###cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
 ###cp 1.mirrorlist /etc/pacman.d/mirrorlist
 ###cat /etc/pacman.d/mirrorlist
+
+less /etc/pacman.d/mirrorlist
 
 pacman -Syy
 
