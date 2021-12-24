@@ -40,8 +40,7 @@ echo
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
 curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1.mirrorlist > 1.mirrorlist
 cp 1.mirrorlist /etc/pacman.d/mirrorlist
-
-less /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist
 
 pacman -Syy
 
