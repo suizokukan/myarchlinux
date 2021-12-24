@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v20 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v21 ==="
 echo "============================================="
 
 echo
@@ -37,10 +37,9 @@ echo
 echo "[A.04] === pacstrap ==="
 echo
 
-###curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1.mirrorlist > 1.mirrorlist
-###cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
-###cp 1.mirrorlist /etc/pacman.d/mirrorlist
-###cat /etc/pacman.d/mirrorlist
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
+curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1.mirrorlist > 1.mirrorlist
+cp 1.mirrorlist /etc/pacman.d/mirrorlist
 
 less /etc/pacman.d/mirrorlist
 
