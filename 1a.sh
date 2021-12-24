@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v19 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v20 ==="
 echo "============================================="
 
 echo
@@ -44,7 +44,7 @@ echo
 
 less /etc/pacman.d/mirrorlist
 
-pacman -Syy
+###pacman -Syy
 
 pacstrap /mnt base linux linux-firmware
 
