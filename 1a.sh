@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v14 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v16 ==="
 echo "============================================="
 
 echo
@@ -39,9 +39,9 @@ echo
 
 pacman -Syy
 
-pacman -S --noconfirm reflector
+curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1.mirrorlist > 1.mirrorlist
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
-reflector -c "fr" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+cp 1.mirrorlist /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 
 pacstrap /mnt base linux linux-firmware
