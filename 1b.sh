@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v29 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v30 ==="
 echo "============================================="
 
 echo
@@ -84,9 +84,9 @@ systemctl enable NetworkManager.service
 sleep 2
 
 echo
-echo "[B.12] === X, i3 and conky/nitrogen ==="
+echo "[B.12] === X, i3/lxterminal/nm-applet/thunar and conky/nitrogen ==="
 echo
-pacman -S --noconfirm xorg xorg-xinit xterm i3 conky nitrogen
+pacman -S --noconfirm xorg xorg-xinit xterm i3 lxterminal nm-applet thunar conky nitrogen
 sleep 2
 
 echo
@@ -102,7 +102,13 @@ pacman -S --noconfirm fish
 sleep 2
 
 echo
-echo "[B.15] === proguser ==="
+echo "[B.15] === firefox ==="
+echo
+pacman -S --noconfirm firefox
+sleep 2
+
+echo
+echo "[B.16] === new user: proguser ==="
 echo
 useradd -m proguser
 echo "proguser:e" | chpasswd
