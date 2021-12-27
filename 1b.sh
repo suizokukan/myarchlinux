@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v30 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v31 ==="
 echo "============================================="
 
 echo
@@ -102,7 +102,13 @@ pacman -S --noconfirm fish
 sleep 2
 
 echo
-echo "[B.15] === firefox ==="
+echo "[B.15] === sudo ==="
+echo
+pacman -S --noconfirm sudo
+sleep 2
+
+echo
+echo "[B.16] === firefox ==="
 echo
 pacman -S --noconfirm firefox
 sleep 2
