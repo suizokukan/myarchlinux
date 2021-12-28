@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v32 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v33 ==="
 echo "============================================="
 
 echo
@@ -118,4 +118,5 @@ echo "[B.17] === new user: proguser ==="
 echo
 useradd -m proguser
 echo "proguser:e" | chpasswd
+chsh -s `which fish` proguser
 sleep 2
