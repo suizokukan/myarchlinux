@@ -2,6 +2,15 @@ echo "============================================="
 echo "=== louisix12261270 / ArchLinux / 1b: v31 ==="
 echo "============================================="
 
+### login manager: lxdm
+###
+### for all users but root:
+### window manager: i3 + nitrogen + cooky
+### shell:          fish
+### terminal:       lxterminal
+###
+### user:           proguser
+
 echo
 echo "[B.01] === /etc/localtime ==="
 echo
@@ -84,9 +93,9 @@ systemctl enable NetworkManager.service
 sleep 2
 
 echo
-echo "[B.12] === X, i3/lxterminal/nm-applet/thunar and conky/nitrogen ==="
+echo "[B.12] === X, i3/lxdm/lxterminal/nm-applet/thunar and conky/nitrogen ==="
 echo
-pacman -S --noconfirm xorg xorg-xinit xterm i3 lxterminal nm-applet thunar conky nitrogen
+pacman -S --noconfirm xorg xorg-xinit xterm i3 lxterminal lxdm nm-applet thunar conky nitrogen
 sleep 2
 
 echo
@@ -114,7 +123,7 @@ pacman -S --noconfirm firefox
 sleep 2
 
 echo
-echo "[B.16] === new user: proguser ==="
+echo "[B.17] === new user: proguser ==="
 echo
 useradd -m proguser
 echo "proguser:e" | chpasswd
