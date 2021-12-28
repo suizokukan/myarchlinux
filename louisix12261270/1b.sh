@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v40 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v41 ==="
 echo "============================================="
 
 echo
@@ -88,6 +88,12 @@ echo "[B.12] === X, i3/lxdm/lxterminal/nm-applet/conky/nitrogen ==="
 echo
 pacman -S --noconfirm xorg xorg-xinit xterm i3 lxterminal lxdm network-manager-applet conky nitrogen
 systemctl enable lxdm
+
+# sur ArchBang live, pour trouver le driver à installer:
+#   $ lspci | grep VGA
+# la liste des drivers pouvant être installés:
+#   $ sudo pacman -Qq | grep xf86-video
+pacman --no-confirm xf86-video-intel
 
 # X configuration: keyboard
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
