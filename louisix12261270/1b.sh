@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v45 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v46 ==="
 echo "============================================="
 
 echo
@@ -99,6 +99,10 @@ pacman --noconfirm xf86-video-intel
 ### "Failed to set keymap: Local keyboard configuration not supported ..."
 # X configuration: keyboard
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
+
+# libxkbcommon and libxkbcommon-x11 are required to set the keyboard:
+# see e.g. https://www.reddit.com/r/archlinux/comments/if28wn/localectl_does_not_have_uk_keyboard_layout/
+pacman --noconfirm libxkbcommon libxkbcommon-x11
 localectl --no-convert set-x11-keymap fr pc105 keypad:pointerkeys grp:alt_shift_toggle
 
 # link between lxdm and i3 configuration:
