@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v42 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v43 ==="
 echo "============================================="
 
 echo
@@ -121,9 +121,10 @@ pacman -S --noconfirm fish
 sleep 4
 
 echo
-echo "[B.15] === sudo, which ==="
+echo "[B.15] === sudo, which, htop, tree, ntfs-3g, wget ==="
 echo
 pacman -S --noconfirm sudo which
+pacman -S --noconfirm htop tree ntfs-3g wget 
 sleep 4
 
 echo
@@ -133,13 +134,57 @@ pacman -S --noconfirm firefox
 sleep 4
 
 echo
-echo "[B.17] === thunarx ==="
+echo "[B.17] === python ==="
+echo
+sudo pacman -S --no-confirm base-devel python-pylint python-pip shellcheck
+sleep 4
+
+echo
+echo "[B.18] === thunar ==="
 echo
 pacman -S --noconfirm thunar
 sleep 4
 
 echo
-echo "[B.17] === new user: proguser (sudoer) ==="
+echo "[B.19] === git ==="
+echo
+
+pacman -S --noconfirm git
+
+git config --global user.name "suizokukan"
+git config --global user.email "suizokukan@orange.fr"
+git config --global core.editor "emacs"
+git config --global pull.rebase false
+
+sleep 4
+
+echo
+echo "[B.20] === yaourt ==="
+echo
+
+rm -rf package-query/
+rm -rf yaourt/
+git clone https://aur.archlinux.org/package-query.git
+cd package-query
+makepkg -si --noconfirm
+cd ..
+git clone https://aur.archlinux.org/yaourt.git
+cd yaourt
+makepkg -si --noconfirm
+cd ..
+rm -rf package-query/
+rm -rf yaourt/
+
+sleep 4
+
+echo
+echo "[B.21] === fonts ==="
+echo
+sudo pacman -S --noconfirm ttf-hanazono
+sleep 4
+
+echo
+echo "[B.22] === new user: proguser (sudoer) ==="
 echo
 useradd -m proguser
 usermod -aG sudo proguser
