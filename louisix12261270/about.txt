@@ -1,0 +1,11 @@
+login manager: lxdm
+  ! systemd appelle ldxm via /etc/systemd/system/display-manager.service
+    (confer https://wiki.archlinux.org/title/Display_manager)
+  ! lxdm examine le contenu de /usr/share/xsessions/i3.desktop
+    (confer https://blog.wxm.be/2012/06/26/editing-sessions-in-lxdm.html)
+    
+window manager: i3 + nitrogen + cooky
+shell:          fish
+terminal:       lxterminal
+
+user:           proguser

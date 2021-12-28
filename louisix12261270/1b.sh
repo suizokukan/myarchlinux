@@ -2,15 +2,6 @@ echo "============================================="
 echo "=== louisix12261270 / ArchLinux / 1b: v32 ==="
 echo "============================================="
 
-### login manager: lxdm
-###
-### for all users but root:
-### window manager: i3 + nitrogen + cooky
-### shell:          fish
-### terminal:       lxterminal
-###
-### user:           proguser
-
 echo
 echo "[B.01] === /etc/localtime ==="
 echo
