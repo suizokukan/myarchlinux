@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v31 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v32 ==="
 echo "============================================="
 
 ### login manager: lxdm
