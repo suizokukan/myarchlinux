@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v43 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v44 ==="
 echo "============================================="
 
 echo
@@ -186,6 +186,7 @@ sleep 4
 echo
 echo "[B.22] === new user: proguser (sudoer) ==="
 echo
+groupadd sudo
 useradd -m proguser
 usermod -aG sudo proguser
 echo "proguser:e" | chpasswd
