@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v37 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v38 ==="
 echo "============================================="
 
 echo
@@ -89,11 +89,12 @@ echo
 pacman -S --noconfirm xorg xorg-xinit xterm i3 lxterminal lxdm network-manager-applet thunar conky nitrogen
 systemctl enable lxdm
 
-# i3 configuration:
+# link between lxdm and i3 configuration:
 curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/i3.desktop > i3.desktop
 curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/i3-with-shmlog.desktop > i3-with-shmlog.desktop
 cp i3.desktop /usr/share/xsessions/
 cp i3-with-shmlog.desktop /usr/share/xsessions/
+
 sleep 2
 
 echo
@@ -128,7 +129,7 @@ useradd -m proguser
 echo "proguser:e" | chpasswd
 chsh -s `which fish` proguser
 
-# .config/i3/config file:
+# .config/i3/config file (stored in the repo as i3.config)
 mkdir /home/proguser/.config
 mkdir /home/proguser/.config/i3
 curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/i3.config > i3.config
