@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v44 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v45 ==="
 echo "============================================="
 
 echo
@@ -93,8 +93,10 @@ systemctl enable lxdm
 #   $ lspci | grep VGA
 # la liste des drivers pouvant être installés:
 #   $ sudo pacman -Qq | grep xf86-video
-pacman --no-confirm xf86-video-intel
+pacman --noconfirm xf86-video-intel
 
+###### TODO
+### "Failed to set keymap: Local keyboard configuration not supported ..."
 # X configuration: keyboard
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
 localectl --no-convert set-x11-keymap fr pc105 keypad:pointerkeys grp:alt_shift_toggle
@@ -136,7 +138,7 @@ sleep 4
 echo
 echo "[B.17] === python ==="
 echo
-sudo pacman -S --no-confirm base-devel python-pylint python-pip shellcheck
+sudo pacman -S --noconfirm base-devel python-pylint python-pip shellcheck
 sleep 4
 
 echo
