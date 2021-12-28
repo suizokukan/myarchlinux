@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v34 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v35 ==="
 echo "============================================="
 
 echo
@@ -86,7 +86,7 @@ sleep 2
 echo
 echo "[B.12] === X, i3/lxdm/lxterminal/nm-applet/thunar and conky/nitrogen ==="
 echo
-pacman -S --noconfirm xorg xorg-xinit xterm i3 lxterminal lxdm nm-applet thunar conky nitrogen
+pacman -S --noconfirm xorg xorg-xinit xterm i3 lxterminal lxdm network-manager-applet thunar conky nitrogen
 sleep 2
 
 echo
