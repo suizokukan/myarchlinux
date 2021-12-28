@@ -38,7 +38,7 @@ echo "[A.04] === pacstrap ==="
 echo
 
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
-curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/1.mirrorlist > 1.mirrorlist
+curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/1.mirrorlist > 1.mirrorlist
 cp 1.mirrorlist /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 
