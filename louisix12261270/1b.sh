@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v39 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v40 ==="
 echo "============================================="
 
 echo
@@ -133,9 +133,10 @@ pacman -S --noconfirm thunar
 sleep 4
 
 echo
-echo "[B.17] === new user: proguser ==="
+echo "[B.17] === new user: proguser (sudoer) ==="
 echo
 useradd -m proguser
+usermod -aG sudo proguser
 echo "proguser:e" | chpasswd
 chsh -s `which fish` proguser
 
