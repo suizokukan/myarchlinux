@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v33 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v34 ==="
 echo "============================================="
 
 echo
@@ -98,6 +98,7 @@ sleep 2
 echo
 echo "[B.14] === fish ==="
 echo
+### chsh -s will be later called to change default shell for each new user.
 pacman -S --noconfirm fish
 sleep 2
 
