@@ -1,5 +1,5 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v46 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v47 ==="
 echo "============================================="
 
 echo
@@ -114,45 +114,60 @@ cp i3-with-shmlog.desktop /usr/share/xsessions/
 sleep 4
 
 echo
-echo "[B.13] === nano and emacs ==="
+echo "[B.13] === automount ==="
+echo
+### https://doc.ubuntu-fr.org/autofs
+### https://unix.stackexchange.com/questions/374103/systemd-automount-vs-autofs/375602#375602
+### https://qastack.fr/unix/196397/is-there-anyway-to-automatically-mount-a-filesystem-when-i-open-a-symbolic-link
+echo "UUID=ed5ac6e5-9fc3-4d28-b0b5-0c4466249c71 /mnt/mymnt ext4  noauto,nofail,x-systemd.automount,x-systemd.idle-timeout=2s,x-systemd.device-timeout=30ms" >> /etc/fstab
+systemctl daemon-reload
+systemctl daemon-reload
+systemctl restart local-fs.target
+
+sleep 4
+
+echo
+echo "[B.14] === nano and emacs ==="
 echo
 pacman -S --noconfirm nano emacs
 sleep 4
 
 echo
-echo "[B.14] === fish ==="
+echo "[B.15] === fish ==="
 echo
 ### chsh -s will be later called to change default shell for each new user.
 pacman -S --noconfirm fish
 sleep 4
 
 echo
-echo "[B.15] === sudo, which, htop, tree, ntfs-3g, wget ==="
+echo "[B.16] === sudo, which, htop, tree, ntfs-3g, wget ==="
 echo
-pacman -S --noconfirm sudo which
-pacman -S --noconfirm htop tree ntfs-3g wget 
+# https://wiki.archlinux.fr/Sudo
+pacman -S --noconfirm sudo
+
+pacman -S --noconfirm which htop tree ntfs-3g wget 
 sleep 4
 
 echo
-echo "[B.16] === firefox ==="
+echo "[B.17] === firefox ==="
 echo
 pacman -S --noconfirm firefox
 sleep 4
 
 echo
-echo "[B.17] === python ==="
+echo "[B.18] === python ==="
 echo
 sudo pacman -S --noconfirm base-devel python-pylint python-pip shellcheck
 sleep 4
 
 echo
-echo "[B.18] === thunar ==="
+echo "[B.19] === thunar ==="
 echo
 pacman -S --noconfirm thunar
 sleep 4
 
 echo
-echo "[B.19] === git ==="
+echo "[B.20] === git ==="
 echo
 
 pacman -S --noconfirm git
@@ -165,7 +180,7 @@ git config --global pull.rebase false
 sleep 4
 
 echo
-echo "[B.20] === yaourt ==="
+echo "[B.21] === yaourt ==="
 echo
 
 rm -rf package-query/
@@ -184,13 +199,13 @@ rm -rf yaourt/
 sleep 4
 
 echo
-echo "[B.21] === fonts ==="
+echo "[B.22] === fonts ==="
 echo
 sudo pacman -S --noconfirm ttf-hanazono
 sleep 4
 
 echo
-echo "[B.22] === new user: proguser (sudoer) ==="
+echo "[B.23] === new user: proguser (sudoer) ==="
 echo
 groupadd sudo
 useradd -m proguser
