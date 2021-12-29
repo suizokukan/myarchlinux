@@ -1,1 +1,9 @@
-1) un seul .sh : --prechroot / --postchroot / --sleep --nosleep
+10) pas de réseau au reboot
+09) pas de clavier fr sous X (localectl ne marche)
+08) pas d'automount
+07) proguser n'est pas un sudoer
+06) yaourt: makepkg en root impossible
+
+
+01) un seul .sh : --prechroot / --postchroot / --sleep --nosleep
+
