@@ -1,14 +1,15 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v29 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v30 ==="
 echo "============================================="
 
-TITLECOLOR='\033[0;34m'
+TITLECOLOR='\033[0;33m'
 DEFAULTCOLOR='\033[0m'
 
 title () {
   echo
   echo -e "${TITLECOLOR}$1${DEFAULTCOLOR}"
   echo
+  sleep 2
 }
 
 aftersection () {
