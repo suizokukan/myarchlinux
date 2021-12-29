@@ -1,91 +1,80 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1b: v47 ==="
+echo "=== louisix12261270 / ArchLinux / 1b: v49 ==="
 echo "============================================="
 
-echo
-echo "[B.01] === /etc/localtime ==="
-echo
+TITLECOLOR='\033[0;34m'
+DEFAULTCOLOR='\033[0m'
+
+title () {
+  echo
+  echo -e "$(TITLECOLOR)$1$(DEFAULTCOLOR)"
+  echo
+}
+
+aftersection () {
+    sleep 4
+}
+
+title "[B.01] === /etc/localtime ==="
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
-sleep 4
+aftersection
 
-echo
-echo "[B.02] === hwclock ==="
-echo
+title "[B.02] === hwclock ==="
 hwclock --systohc
-sleep 4
+aftersection
 
-echo
-echo "[B.03] === /etc/locale.gen and locale-gen ==="
+title "[B.03] === /etc/locale.gen and locale-gen ==="
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
-echo
 locale-gen
-sleep 4
+aftersection
 
-echo
-echo "[B.04] === /etc/locale.conf ==="
+title "[B.04] === /etc/locale.conf ==="
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "LC_MESSAGES=en_US.UTF-8" >> /etc/locale.conf
-echo
-sleep 4
+aftersection
 
-echo
-echo "[B.05] === /etc/vconsole.conf ==="
+title "[B.05] === /etc/vconsole.conf ==="
 echo "KEYMAP=fr-latin1" > /etc/vconsole.conf
-echo
-sleep 4
+aftersection
 
-echo
-echo "[B.06] === /etc/hostname ==="
+title "[B.06] === /etc/hostname ==="
 echo "louisix12261270" > /etc/hostname
-echo
-sleep 4
+aftersection
 
-echo
-echo "[B.07] === /etc/hosts ==="
-echo
+title "[B.07] === /etc/hosts ==="
 touch /etc/hosts
 echo "127.0.0.1	localhost" >> /etc/hosts
 echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	louisix12261270" >> /etc/hosts
-sleep 4
+aftersection
 
-echo
-echo "[B.08] === pacman update ==="
-echo
-
+title "[B.08] === pacman update ==="
 pacman -Sy --noconfirm archlinux-keyring
 pacman-key --noconfirm --populate archlinux
 pacman-key --noconfirm --refresh-keys
 pacman -Syu --noconfirm 
 pacman -Scc --noconfirm 
-pacman -Syuu --noconfirm 
+pacman -Syuu --noconfirm
+aftersection
 
-echo
-echo "[B.09] === root password ==="
-echo
+title "[B.09] === root password ==="
 echo "root:e" | chpasswd
-sleep 4
+aftersection
 
-echo
-echo "[B.10] === GRUB ==="
-echo
+title "[B.10] === GRUB ==="
 pacman -S --noconfirm grub os-prober
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-sleep 4
+aftersection
 
-echo
-echo "[B.11] === networkmanager ==="
-echo
+title "[B.11] === networkmanager ==="
 pacman -S --noconfirm networkmanager wpa_supplicant wireless_tools
 systemctl enable wpa_supplicant.service
 systemctl enable NetworkManager.service
-sleep 4
+aftersection
 
-echo
-echo "[B.12] === X, i3/lxdm/lxterminal/nm-applet/conky/nitrogen ==="
-echo
+title "[B.12] === X, i3/lxdm/lxterminal/nm-applet/conky/nitrogen ==="
 pacman -S --noconfirm xorg xorg-xinit xorg-xrandr xterm i3 lxterminal lxdm network-manager-applet conky nitrogen
 systemctl enable lxdm
 
@@ -111,11 +100,9 @@ curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix122612
 cp i3.desktop /usr/share/xsessions/
 cp i3-with-shmlog.desktop /usr/share/xsessions/
 
-sleep 4
+aftersection
 
-echo
-echo "[B.13] === automount ==="
-echo
+title "[B.13] === automount ==="
 ### https://doc.ubuntu-fr.org/autofs
 ### https://unix.stackexchange.com/questions/374103/systemd-automount-vs-autofs/375602#375602
 ### https://qastack.fr/unix/196397/is-there-anyway-to-automatically-mount-a-filesystem-when-i-open-a-symbolic-link
@@ -123,53 +110,37 @@ echo "UUID=ed5ac6e5-9fc3-4d28-b0b5-0c4466249c71 /mnt/mymnt ext4  noauto,nofail,x
 systemctl daemon-reload
 systemctl daemon-reload
 systemctl restart local-fs.target
+aftersection
 
-sleep 4
-
-echo
-echo "[B.14] === nano and emacs ==="
-echo
+title "[B.14] === nano and emacs ==="
 pacman -S --noconfirm nano emacs
-sleep 4
+aftersection
 
-echo
-echo "[B.15] === fish ==="
-echo
+title "[B.15] === fish ==="
 ### chsh -s will be later called to change default shell for each new user.
 pacman -S --noconfirm fish
-sleep 4
+aftersection
 
-echo
-echo "[B.16] === sudo, which, htop, tree, ntfs-3g, wget ==="
-echo
+title "[B.16] === sudo, which, htop, tree, ntfs-3g, wget ==="
 # https://wiki.archlinux.fr/Sudo
 pacman -S --noconfirm sudo
 
 pacman -S --noconfirm which htop tree ntfs-3g wget 
-sleep 4
+aftersection
 
-echo
-echo "[B.17] === firefox ==="
-echo
+title "[B.17] === firefox ==="
 pacman -S --noconfirm firefox
-sleep 4
+aftersection
 
-echo
-echo "[B.18] === python ==="
-echo
+title "[B.18] === python ==="
 sudo pacman -S --noconfirm base-devel python-pylint python-pip shellcheck
-sleep 4
+aftersection
 
-echo
-echo "[B.19] === thunar ==="
-echo
+title "[B.19] === thunar ==="
 pacman -S --noconfirm thunar
-sleep 4
+aftersection
 
-echo
-echo "[B.20] === git ==="
-echo
-
+title "[B.20] === git ==="
 pacman -S --noconfirm git
 
 git config --global user.name "suizokukan"
@@ -177,11 +148,9 @@ git config --global user.email "suizokukan@orange.fr"
 git config --global core.editor "emacs"
 git config --global pull.rebase false
 
-sleep 4
+aftersection
 
-echo
-echo "[B.21] === yaourt ==="
-echo
+title "[B.21] === yaourt ==="
 
 rm -rf package-query/
 rm -rf yaourt/
@@ -196,17 +165,13 @@ cd ..
 rm -rf package-query/
 rm -rf yaourt/
 
-sleep 4
+aftersection
 
-echo
-echo "[B.22] === fonts ==="
-echo
+title "[B.22] === fonts ==="
 sudo pacman -S --noconfirm ttf-hanazono
-sleep 4
+aftersection
 
-echo
-echo "[B.23] === new user: proguser (sudoer) ==="
-echo
+title "[B.23] === new user: proguser (sudoer) ==="
 groupadd sudo
 useradd -m proguser
 usermod -aG sudo proguser
@@ -222,4 +187,4 @@ cp i3.config /home/proguser/.config/i3/config
 
 chown -R proguser /home/proguser/.config
 
-sleep 4
+aftersection
