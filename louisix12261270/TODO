@@ -4,6 +4,7 @@
 07) proguser n'est pas un sudoer
 06) yaourt: makepkg en root impossible
 
+07) ajouter des lignes pour vérifier que l'étape s'est correctement passée.
+par exemple yaourt --version
 
-01) un seul .sh : --prechroot / --postchroot / --sleep --nosleep
-
+99) --nosleep
