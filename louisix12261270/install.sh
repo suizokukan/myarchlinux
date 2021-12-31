@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 42"
+VERSION="v. 43"
 
 showarguments() {
     echo "  -  --start        : normal way to start this script"
@@ -224,6 +224,13 @@ pacman --noconfirm xf86-video-intel
 # X configuration: keyboard
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
 
+
+localectl list-x11-keymap-models
+localectl list-x11-keymap-layouts
+localectl list-x11-keymap-variants fr
+localectl list-x11-keymap-options
+less
+
 # libxkbcommon and libxkbcommon-x11 are required to set the keyboard:
 # see e.g. https://www.reddit.com/r/archlinux/comments/if28wn/localectl_does_not_have_uk_keyboard_layout/
 pacman --noconfirm libxkbcommon libxkbcommon-x11
@@ -234,6 +241,12 @@ curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix122612
 curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/i3-with-shmlog.desktop > i3-with-shmlog.desktop
 cp i3.desktop /usr/share/xsessions/
 cp i3-with-shmlog.desktop /usr/share/xsessions/
+
+localectl list-x11-keymap-models
+localectl list-x11-keymap-layouts
+localectl list-x11-keymap-variants fr
+localectl list-x11-keymap-options
+less
 
 aftersection
 
