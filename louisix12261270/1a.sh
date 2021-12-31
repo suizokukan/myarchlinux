@@ -1,27 +1,42 @@
-echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v31 ==="
-echo "============================================="
+SCRIPTNAME="louisix12261270:prechroot"
+VERSION="v. 32"
 
-VERSION="louisix12261270:prechroot v.31"
+showarguments() {
+    echo "  -  prechroot"
+    echo "  -  chroot"
+    echo "  -  -h / --help   : see this message."
+    echo "  -  -v / --version: see version string."
+}
 
-TITLECOLOR='\033[0;33m'
-DEFAULTCOLOR='\033[0m'
 
 # ---- --help ----------------------------------------------------------------
 if [[ $# -eq 0 ]] || [[ $1 = "--help" ]] || [[ $1 = "-h" ]]; then
-    echo "$VERSION"
-    echo "..."
-    echo "-h / --help   : see this message."
-    echo "-v / --version: see version string."
+    echo "$SCRIPTNAME / $VERSION"
+    echo "One argument is required:"
+    showarguments
     exit 255
 elif [[ $1 = "--version" ]] || [[ $1 = "-v" ]]; then
-    echo "$VERSION"
+    echo "$SCRIPTNAME / $VERSION"
     exit 255
 fi
 
 if [[ $1 != "prechroot" ]] && [[ $1 != "chroot" ]]; then
-    echo "Missing argument: prechroot/chroot."
+    echo "$SCRIPTNAME / $VERSION"
+    echo "Wrong argument: please choose one argument among:"
+    showarguments
+    exit 255
 fi
+
+# ============================================================================
+# ==== REAL STARTPOINT =======================================================
+# ============================================================================
+
+echo "========================================="
+echo "=== $SCRIPTNAME / $VERSION ==="
+echo "========================================="
+
+TITLECOLOR='\033[0;33m'
+DEFAULTCOLOR='\033[0m'
 
 title () {
   echo
@@ -36,7 +51,7 @@ aftersection () {
 
 if [[ $1 = "prechroot" ]]; then
 title "[A.01] === sfdisk /dev/sda < 1.sfdisk ==="
-
+less
 touch data.sfdisk
 echo "label: dos" >> data.sfdisk
 echo "label-id: 0xfac4ed85" >> data.sfdisk
@@ -84,4 +99,6 @@ cp 1b.sh /mnt
 echo "about to chroot on /mnt ..."
 aftersection
 arch-chroot /mnt sh 1b.sh
+
+echo "POST CHROOT"
 fi
