@@ -1,9 +1,12 @@
-SCRIPTNAME="louisix12261270:prechroot"
-VERSION="v. 32"
+#!/usr/bin/env bash
+
+
+SCRIPTNAME="louisix12261270"
+VERSION="v. 34"
 
 showarguments() {
-    echo "  -  prechroot"
-    echo "  -  chroot"
+    echo "  -  --start"
+    echo "  -  --chroot"
     echo "  -  -h / --help   : see this message."
     echo "  -  -v / --version: see version string."
 }
@@ -20,7 +23,7 @@ elif [[ $1 = "--version" ]] || [[ $1 = "-v" ]]; then
     exit 255
 fi
 
-if [[ $1 != "prechroot" ]] && [[ $1 != "chroot" ]]; then
+if [[ $1 != "--start" ]] && [[ $1 != "--chroot" ]]; then
     echo "$SCRIPTNAME / $VERSION"
     echo "Wrong argument: please choose one argument among:"
     showarguments
@@ -49,7 +52,7 @@ aftersection () {
     sleep 4
 }
 
-if [[ $1 = "prechroot" ]]; then
+if [[ $1 = "--start" ]]; then
 title "[A.01] === sfdisk /dev/sda < 1.sfdisk ==="
 less
 touch data.sfdisk
@@ -93,12 +96,11 @@ genfstab -U /mnt >> /mnt/etc/fstab
 aftersection
 
 title "[A.06] === arch-chroot /mnt ==="
-curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/1b.sh > 1b.sh
-cp 1b.sh /mnt
+cp 1a.sh /mnt
 
 echo "about to chroot on /mnt ..."
 aftersection
-arch-chroot /mnt sh 1b.sh
+arch-chroot /mnt sh 1a.sh --chroot
 
 echo "POST CHROOT"
 fi
