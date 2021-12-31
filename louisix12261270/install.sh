@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 41"
+VERSION="v. 42"
 
 showarguments() {
     echo "  -  --start        : normal way to start this script"
@@ -25,6 +25,8 @@ showarguments() {
 # ---- --help ----------------------------------------------------------------
 if [[ $# -eq 0 ]] || [[ $1 = "--help" ]] || [[ $1 = "-h" ]]; then
     echo "$SCRIPTNAME / $VERSION"
+    echo "Use this script to install ArchLinux on your system."
+    echo
     echo "One argument is required:"
     showarguments
     echo
