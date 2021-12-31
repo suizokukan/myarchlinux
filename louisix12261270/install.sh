@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 36"
+VERSION="v. 37"
 
 showarguments() {
     echo "  -  --start"
@@ -264,28 +264,11 @@ git config --global pull.rebase false
 
 aftersection
 
-title "[B.21] === yaourt ==="
-
-rm -rf package-query/
-rm -rf yaourt/
-git clone https://aur.archlinux.org/package-query.git
-cd package-query
-makepkg -si --noconfirm
-cd ..
-git clone https://aur.archlinux.org/yaourt.git
-cd yaourt
-makepkg -si --noconfirm
-cd ..
-rm -rf package-query/
-rm -rf yaourt/
-
-aftersection
-
-title "[B.22] === fonts ==="
+title "[B.21] === fonts ==="
 sudo pacman -S --noconfirm ttf-hanazono
 aftersection
 
-title "[B.23] === new user: proguser (sudoer) ==="
+title "[B.22] === new user: proguser (sudoer) ==="
 groupadd sudo
 useradd -m proguser
 usermod -aG sudo proguser
@@ -302,4 +285,24 @@ cp i3.config /home/proguser/.config/i3/config
 chown -R proguser /home/proguser/.config
 
 aftersection
+
+title "[B.23] === yaourt ==="
+
+su proguser
+
+rm -rf package-query/
+rm -rf yaourt/
+git clone https://aur.archlinux.org/package-query.git
+cd package-query
+makepkg -si --noconfirm
+cd ..
+git clone https://aur.archlinux.org/yaourt.git
+cd yaourt
+makepkg -si --noconfirm
+cd ..
+rm -rf package-query/
+rm -rf yaourt/
+
+aftersection
+
 fi
