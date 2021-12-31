@@ -13,13 +13,13 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 38"
+VERSION="v. 39"
 
 showarguments() {
-    echo "  -  --start"
-    echo "  -  --chroot"
-    echo "  -  -h / --help   : see this message."
-    echo "  -  -v / --version: see version string."
+    echo "  -  --start        : normal way to start this script"
+    echo "  -  --chroot       : internal keyword = start the script while chrooting"
+    echo "  -  -h / --help    : see this message."
+    echo "  -  -v / --version : see version string."
 }
 
 # ---- --help ----------------------------------------------------------------
@@ -27,7 +27,7 @@ if [[ $# -eq 0 ]] || [[ $1 = "--help" ]] || [[ $1 = "-h" ]]; then
     echo "$SCRIPTNAME / $VERSION"
     echo "One argument is required:"
     showarguments
-    echo 
+    echo
     echo "To start the script, please write:"
     echo "$ install.sh --install"
     echo
