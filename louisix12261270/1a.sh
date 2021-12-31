@@ -1,9 +1,27 @@
 echo "============================================="
-echo "=== louisix12261270 / ArchLinux / 1a: v30 ==="
+echo "=== louisix12261270 / ArchLinux / 1a: v31 ==="
 echo "============================================="
+
+VERSION="louisix12261270:prechroot v.31"
 
 TITLECOLOR='\033[0;33m'
 DEFAULTCOLOR='\033[0m'
+
+# ---- --help ----------------------------------------------------------------
+if [[ $# -eq 0 ]] || [[ $1 = "--help" ]] || [[ $1 = "-h" ]]; then
+    echo "$VERSION"
+    echo "..."
+    echo "-h / --help   : see this message."
+    echo "-v / --version: see version string."
+    exit 255
+elif [[ $1 = "--version" ]] || [[ $1 = "-v" ]]; then
+    echo "$VERSION"
+    exit 255
+fi
+
+if [[ $1 != "prechroot" ]] && [[ $1 != "chroot" ]]; then
+    echo "Missing argument: prechroot/chroot."
+fi
 
 title () {
   echo
@@ -16,6 +34,7 @@ aftersection () {
     sleep 4
 }
 
+if [[ $1 = "prechroot" ]]; then
 title "[A.01] === sfdisk /dev/sda < 1.sfdisk ==="
 
 touch data.sfdisk
@@ -65,3 +84,4 @@ cp 1b.sh /mnt
 echo "about to chroot on /mnt ..."
 aftersection
 arch-chroot /mnt sh 1b.sh
+fi
