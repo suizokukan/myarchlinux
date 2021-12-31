@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 37"
+VERSION="v. 38"
 
 showarguments() {
     echo "  -  --start"
@@ -302,6 +302,10 @@ makepkg -si --noconfirm
 cd ..
 rm -rf package-query/
 rm -rf yaourt/
+
+yaourt --version
+
+exit
 
 aftersection
 
