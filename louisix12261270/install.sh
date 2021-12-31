@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 44"
+VERSION="v. 45"
 
 showarguments() {
     echo "  -  --start        : normal way to start this script"
@@ -335,7 +335,7 @@ aftersection
 title "[B.23] === yaourt ==="
 
 cd /home/proguser
-runuser -l proguser -c "curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/install_yaourt.sh"
+runuser -l proguser -c "curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/install_yaourt.sh > install_yaourt.sh"
 runuser -l proguser -c "sh install_yaourt.sh"
 runuser -l proguser -c "rm install_yaourt.sh"
 
