@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 48"
+VERSION="v. 49"
 
 showarguments() {
     echo "  -  --start        : normal way to start this script"
@@ -309,11 +309,11 @@ pacman -S --noconfirm fish
 aftersection
 
 #...............................................................................
-title "[B.16] === sudo, which, htop, tree, ntfs-3g, wget ==="
+title "[B.16] === sudo, which, htop, tree, ntfs-3g, wget, tree ==="
 # https://wiki.archlinux.fr/Sudo
 pacman -S --noconfirm sudo
 
-pacman -S --noconfirm which htop tree ntfs-3g wget 
+pacman -S --noconfirm which htop tree ntfs-3g wget, tree
 aftersection
 
 #...............................................................................
