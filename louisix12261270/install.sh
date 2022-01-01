@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 49"
+VERSION="v. 52"
 
 showarguments() {
     echo "  -  --start        : normal way to start this script"
@@ -65,32 +65,22 @@ aftersection () {
 }
 
 preinstallationdiagnostic () {
-    echo "pre-installation diagnostic" >> diagnostic.txt
+    echo "==== pre-installation diagnostic ====" >> diagnostic.txt
 
     echo "$ uname -a" >> diagnostic.txt
     uname -a >> diagnostic.txt
 
-    echo "$ date" >> diagnistic.txt
-    date >> diagnostic.txt
-}
-
-postchrootdiagnostic () {
-    echo "post-chroot diagnostic" >> diagnostic.txt
-
-    echo "$ uname -a" >> diagnostic.txt
-    uname -a >> diagnostic.txt
-
-    echo "$ date" >> diagnistic.txt
+    echo "$ date" >> diagnostic.txt
     date >> diagnostic.txt
 }
 
 postinstallationdiagnostic () {
-    echo "post-chroot diagnostic" >> diagnostic.txt
+    echo "==== post-installation diagnostic ====" >> diagnostic.txt
 
     echo "$ uname -a" >> diagnostic.txt
     uname -a >> diagnostic.txt
 
-    echo "$ date" >> diagnistic.txt
+    echo "$ date" >> diagnostic.txt
     date >> diagnostic.txt
 
     echo "$ localectl list-x11-keymap-models" >> diagnostic.txt
@@ -99,14 +89,38 @@ postinstallationdiagnostic () {
     echo "$ localectl list-x11-keymap-layouts" >> diagnostic.txt
     localectl list-x11-keymap-layouts >> diagnostic.txt
 
-    echo "localectl list-x11-keymap-variants fr" >> diagnostic.txt
+    echo "$ localectl list-x11-keymap-variants fr" >> diagnostic.txt
     localectl list-x11-keymap-variants fr >> diagnostic.txt
 
-    echo "localectl list-x11-keymap-options" >> diagnostic.txt
+    echo "$ localectl list-x11-keymap-options" >> diagnostic.txt
     localectl list-x11-keymap-options >> diagnostic.txt
 
-    echo "xrandr" >> diagnostic.txt
+    echo "$ xrandr" >> diagnostic.txt
     xrandr >> diagnostic.txt
+
+    echo "$ ip l show" >> diagnostic.txt
+    ip l show >> diagnostic.txt
+
+    echo "$ ip r" >> diagnostic.txt
+    ip r >> diagnostic.txt
+
+    echo "$ tree /etc" >> diagnostic.txt
+    tree /etc >> diagnostic.txt
+
+    echo "$ pacman --version" >> diagnostic.txt
+    pacman --version >> diagnostic.txt
+
+    echo "$ pacman -Q" >> diagnostic.txt
+    pacman -Q >> diagnostic.txt
+
+    echo "$ yaourt --version" >> diagnostic.txt
+    yaourt --version >> diagnostic.txt
+
+    echo "$ python --version" >> diagnostic.txt
+    python --version >> diagnostic.txt
+
+    echo "$ python3 --version" >> diagnostic.txt
+    python3 --version >> diagnostic.txt
 }
 
 # ----------------------------------------------------------------------------
@@ -176,9 +190,9 @@ echo "about to chroot on /mnt ..."
 aftersection
 arch-chroot /mnt sh install.sh --chroot
 
-echo "*** post chroot***"
+echo "${TITLECOLOR}*** post chroot***${DEFAULTCOLOR}"
 
-postchrootdiagnostic
+postinstallationdiagnostic
 fi
 
 # ----------------------------------------------------------------------------

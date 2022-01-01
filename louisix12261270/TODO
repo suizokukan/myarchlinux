@@ -7,4 +7,7 @@
 07) ajouter des lignes pour vérifier que l'étape s'est correctement passée.
 par exemple yaourt --version
 
+08) tree /etc/X... dans diagnostic
+09) combien de temps dure l'installation ?
+
 99) --nosleep
