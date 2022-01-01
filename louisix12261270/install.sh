@@ -13,7 +13,7 @@
 ##############################################################################
 
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 45"
+VERSION="v. 48"
 
 showarguments() {
     echo "  -  --start        : normal way to start this script"
@@ -54,14 +54,59 @@ TITLECOLOR='\033[0;33m'
 DEFAULTCOLOR='\033[0m'
 
 title () {
-  echo
-  echo -e "${TITLECOLOR}$1${DEFAULTCOLOR}"
-  echo
-  sleep 2
+    echo
+    echo -e "${TITLECOLOR}$1${DEFAULTCOLOR}"
+    echo
+    sleep 2
 }
 
 aftersection () {
     sleep 4
+}
+
+preinstallationdiagnostic () {
+    echo "pre-installation diagnostic" >> diagnostic.txt
+
+    echo "$ uname -a" >> diagnostic.txt
+    uname -a >> diagnostic.txt
+
+    echo "$ date" >> diagnistic.txt
+    date >> diagnostic.txt
+}
+
+postchrootdiagnostic () {
+    echo "post-chroot diagnostic" >> diagnostic.txt
+
+    echo "$ uname -a" >> diagnostic.txt
+    uname -a >> diagnostic.txt
+
+    echo "$ date" >> diagnistic.txt
+    date >> diagnostic.txt
+}
+
+postinstallationdiagnostic () {
+    echo "post-chroot diagnostic" >> diagnostic.txt
+
+    echo "$ uname -a" >> diagnostic.txt
+    uname -a >> diagnostic.txt
+
+    echo "$ date" >> diagnistic.txt
+    date >> diagnostic.txt
+
+    echo "$ localectl list-x11-keymap-models" >> diagnostic.txt
+    localectl list-x11-keymap-models >> diagnostic.txt
+
+    echo "$ localectl list-x11-keymap-layouts" >> diagnostic.txt
+    localectl list-x11-keymap-layouts >> diagnostic.txt
+
+    echo "localectl list-x11-keymap-variants fr" >> diagnostic.txt
+    localectl list-x11-keymap-variants fr >> diagnostic.txt
+
+    echo "localectl list-x11-keymap-options" >> diagnostic.txt
+    localectl list-x11-keymap-options >> diagnostic.txt
+
+    echo "xrandr" >> diagnostic.txt
+    xrandr >> diagnostic.txt
 }
 
 # ----------------------------------------------------------------------------
@@ -73,6 +118,8 @@ if [[ $1 = "--start" ]]; then
 echo "========================================="
 echo "=== $SCRIPTNAME / $VERSION ==="
 echo "========================================="
+
+preinstallationdiagnostic
 
 #...............................................................................
 title "[A.01] === sfdisk /dev/sda < 1.sfdisk ==="
@@ -129,7 +176,9 @@ echo "about to chroot on /mnt ..."
 aftersection
 arch-chroot /mnt sh install.sh --chroot
 
-echo "POST CHROOT"
+echo "*** post chroot***"
+
+postchrootdiagnostic
 fi
 
 # ----------------------------------------------------------------------------
@@ -224,13 +273,6 @@ pacman --noconfirm xf86-video-intel
 # X configuration: keyboard
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
 
-
-localectl list-x11-keymap-models
-localectl list-x11-keymap-layouts
-localectl list-x11-keymap-variants fr
-localectl list-x11-keymap-options
-less
-
 # libxkbcommon and libxkbcommon-x11 are required to set the keyboard:
 # see e.g. https://www.reddit.com/r/archlinux/comments/if28wn/localectl_does_not_have_uk_keyboard_layout/
 pacman --noconfirm libxkbcommon libxkbcommon-x11
@@ -241,12 +283,6 @@ curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix122612
 curl https://raw.githubusercontent.com/suizokukan/myarchlinux/main/louisix12261270/i3-with-shmlog.desktop > i3-with-shmlog.desktop
 cp i3.desktop /usr/share/xsessions/
 cp i3-with-shmlog.desktop /usr/share/xsessions/
-
-localectl list-x11-keymap-models
-localectl list-x11-keymap-layouts
-localectl list-x11-keymap-variants fr
-localectl list-x11-keymap-options
-less
 
 aftersection
 
@@ -287,7 +323,7 @@ aftersection
 
 #...............................................................................
 title "[B.18] === python ==="
-sudo pacman -S --noconfirm base-devel python-pylint python-pip shellcheck
+pacman -S --noconfirm base-devel python-pylint python-pip shellcheck
 aftersection
 
 #...............................................................................
@@ -308,7 +344,7 @@ aftersection
 
 #...............................................................................
 title "[B.21] === fonts ==="
-sudo pacman -S --noconfirm ttf-hanazono
+pacman -S --noconfirm ttf-hanazono
 aftersection
 
 #...............................................................................
