@@ -11,3 +11,11 @@ par exemple yaourt --version
 09) combien de temps dure l'installation ?
 
 99) --nosleep
+
+========================================
+https://github.com/helmuthdu/aui
+
+* diagnostique avant installation:
+    * pacman -Q | sed -e 'H;${x;s/\n/,/g;s/^,//;p;};d'
+tput: inclus dans ncurses livré avec l'iso d'ArchLinux
+
