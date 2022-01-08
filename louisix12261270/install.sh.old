@@ -1,132 +1,28 @@
 #!/usr/bin/env bash
 
 ##############################################################################
-# Archlinux installation script
+# installation script
 ##############################################################################
 #
+# see:
 # $ install.sh --help
 # $ install.sh --version
-# 
-# $ install.sh --diagnostic
-#   > do not launch the installation, just the diagnostic
 #
-# $ install.sh --start 
-#   > launch the installation
-#
-# $ install.sh --start --delay=less|0|1|5|10|60
-#   > launch the installation with a delay of n seconds between two installation parts
-#
-##############################################################################
-#
-# CODE STRUCTURE
-#
-# [0] installation constants
-# [1] utilities
-#     [1.1] utilities constants
-#     [1.2] functions
-# [2] help/version
-#
-##############################################################################
-# 
-# DOCUMENTATION
-#
-#:# $ fold --help
-#:#   Usage: fold [OPTION]... [FILE]...
-#:#   Wrap input lines in each FILE, writing to standard output.
-#:#   
-#:#   With no FILE, or when FILE is -, read standard input.
-#:#   
-#:#   Mandatory arguments to long options are mandatory for short options too.
-#:#     -b, --bytes         count bytes rather than columns
-#:#     -s, --spaces        break at spaces
-#:#     -w, --width=WIDTH   use WIDTH columns instead of 80
-#
+# and then:
+# $ install.sh --install
 ##############################################################################
 
-# ============================================================================
-# ==== [0] installation constants ============================================
-# ============================================================================
 SCRIPTNAME="louisix12261270:install.sh"
-VERSION="v. 54"
-
-# ============================================================================
-# ==== [1] utilities =========================================================
-# ============================================================================
-
-# ==== [1.1] utilities constants
-
-#Console width number
-## TODO tput dynamique ou on peut laisser là cette déclaration ?
-#       sinon, à placer avant chaque utilisation de CONSOLE_WIDTH
-CONSOLE_WIDTH=$(tput cols)
-
-CONSOLE_RED=$(tput setaf 1)
-CONSOLE_BOLD=$(tput bold)
-CONSOLE_UNDERLINE=$(tput sgr 0 1)
-CONSOLE_RESET=$(tput sgr0)
-
-EXIT_CODE__ERROR=-1
-
-# ==== [1.2] functions
-
-# ............................................................................
-# msg_info()
-#     Print $1 to console.
-#     If $1 is too long, $1 will be splitted into several lines.
-msg_info() {
-    # about:
-    #    | sed 's/^/\t/'
-    # > add \t at the very character of each line.
-    echo -e "${CONSOLE_BOLD}$1${CONSOLE_RESET}\n" | fold -sw $((CONSOLE_WIDTH - 18)) | sed 's/^/\t/'
-}
-# ............................................................................
-# msg_title()
-#     Print $1 to console as a title.
-#     If $1 is too long, $1 will be splitted into several lines.
-msg_title() {
-    # about:
-    #    | sed 's/^/\t/'
-    # > add \t at the very character of each line.
-    echo -e "${CONSOLE_UNDERLINE}$1${CONSOLE_RESET}\n" | fold -sw $((CONSOLE_WIDTH - 18)) | sed 's/^/\t/'
-}
-# ............................................................................
-# msg_error_and_exit()
-#     Print $1 to console as an error message and quit.
-#     If $1 is too long, $1 will be splitted into several lines.
-msg_error_and_exit() {
-    # about:
-    #    | sed 's/^/\t/'
-    # > add \t at the very character of each line.
-    echo -e "${CONSOLE_RED}${CONSOLE_BOLD}$1${CONSOLE_RESET}\n" | fold -sw $((CONSOLE_WIDTH - 18)) | sed 's/^/\t/'
-    exit $EXIT_CODE__ERROR
-}
-
-msg_title "Let's install Archlinux (script name: ${SCRIPTNAME} / ${VERSION})"
-msg_info "msg_info"
-msg_error_and_exit "Aïe."
-
-#TODO
-# je ne comprends pas la syntaxe
-#
-# RETURNED VALUE:
-# 0: yes
-# 1: no
-contains_element() {
-	for e in "${@:2}"; do [[ "$e" == "$1" ]] && break; done
-}
-
-# ============================================================================
-# ==== [2] help/version ======================================================
-# ============================================================================
+VERSION="v. 52"
 
 showarguments() {
-    echo "  -  --diagnostic   : do not launch the installation, just the diagnostic"
-    echo "  -  --start        : normal way to start this script to install Archlinux"
+    echo "  -  --start        : normal way to start this script"
     echo "  -  --chroot       : internal keyword = start the script while chrooting"
     echo "  -  -h / --help    : see this message."
     echo "  -  -v / --version : see version string."
 }
 
+# ---- --help ----------------------------------------------------------------
 if [[ $# -eq 0 ]] || [[ $1 = "--help" ]] || [[ $1 = "-h" ]]; then
     echo "$SCRIPTNAME / $VERSION"
     echo "Use this script to install ArchLinux on your system."
@@ -143,19 +39,12 @@ elif [[ $1 = "--version" ]] || [[ $1 = "-v" ]]; then
     exit 255
 fi
 
-if [[ $1 != "--start" ]] && [[ $1 != "--chroot" ]] && [[ $1 != "--diagnostic" ]]; then
+if [[ $1 != "--start" ]] && [[ $1 != "--chroot" ]]; then
     echo "$SCRIPTNAME / $VERSION"
     echo "Wrong argument: please choose one argument among:"
     showarguments
     exit 255
 fi
-
-
-
-
-
-
-
 
 # ============================================================================
 # ==== REAL STARTPOINT =======================================================
@@ -163,14 +52,6 @@ fi
 
 TITLECOLOR='\033[0;33m'
 DEFAULTCOLOR='\033[0m'
-
-info() {
-	#Console width number
-	CONSOLE_WIDTH=$(tput cols)
-	echo -e "${CONSOLE_BOLD}$1${CONSOLE_RESET}\n" | fold -sw $((CONSOLE_WIDTH - 18)) | sed 's/^/\t/'
-}
-
-info "Xavier et Anne"
 
 title () {
     echo

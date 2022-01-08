@@ -1,3 +1,23 @@
+Ce que je veux:
+* un script d'installation d'Arch modifiable au moyen de variables définies au début du script
+  * automount
+* un fichier de log pré/postinstallation
+    * pacman -Q | sed -e 'H;${x;s/\n/,/g;s/^,//;p;};d'
+* un script didactique, très bien documenté, facile à modifier.
+* shellcheck
+* me baser sur les meilleures pratiques (https://github.com/helmuthdu/aui)
+* un seul fichier (pas de dépendances)
+* ligne de commande:
+  --version / -v
+  --help / -h
+  --diagnostic             : ne pas lancer l'installation, juste le diagnostique
+  --start
+  --delay=less|0|1|5|10|60
+  
+  
+==============================
+problèmes avec l'ancienne version:
+
 10) pas de réseau au reboot
 09) pas de clavier fr sous X (localectl ne marche)
 08) pas d'automount
@@ -10,12 +30,8 @@ par exemple yaourt --version
 08) tree /etc/X... dans diagnostic
 09) combien de temps dure l'installation ?
 
-99) --nosleep
-
 ========================================
-https://github.com/helmuthdu/aui
 
-* diagnostique avant installation:
-    * pacman -Q | sed -e 'H;${x;s/\n/,/g;s/^,//;p;};d'
+
 tput: inclus dans ncurses livré avec l'iso d'ArchLinux
 
